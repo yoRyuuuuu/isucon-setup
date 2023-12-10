@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install alp
+      get_url:
+        url: https://github.com/tkuchiki/alp/releases/download/v1.0.21/alp_linux_amd64.tar.gz
+        dest: /tmp
+    - name: extract alp
+      unarchive:
+        src: /tmp/alp_linux_amd64.tar.gz
+        dest: /usr/bin
+        remote_src: yes
+    - name: remove alp
+      file:
+        path: /tmp/alp_linux_amd64.tar.gz
+        state: absent

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: install htop
+      ansible.builtin.apt:
+        name: htop
+        state: latest
+        
