@@ -1,0 +1,10 @@
+---
+- name: install tools
+  hosts: all
+  become: true
+  tasks:
+    - import_tasks: ../roles/install_tools/alp.yml
+    - import_tasks: ../roles/install_tools/htop.yml
+    - import_tasks: ../roles/install_tools/pt-query-digest.yml
+    - import_tasks: ../roles/install_tools/slp.yml
+    - import_tasks: ../roles/install_tools/ssh-key.yml
