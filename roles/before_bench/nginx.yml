@@ -1,0 +1,12 @@
+---
+- name: copy /etc/nginx/nginx.conf
+  copy:
+    src: ../files/etc/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf
+    mode: 0644
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
