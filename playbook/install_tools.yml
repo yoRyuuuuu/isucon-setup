@@ -11,3 +11,4 @@
     - import_tasks: ../roles/install_tools/gh.yml
     - import_tasks: ../roles/install_tools/lazygit.yml
     - import_tasks: ../roles/install_tools/graphviz.yml
+    - import_tasks: ../roles/install_tools/scripts.yml
