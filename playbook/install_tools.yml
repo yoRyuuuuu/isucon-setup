@@ -8,3 +8,6 @@
     - import_tasks: ../roles/install_tools/pt-query-digest.yml
     - import_tasks: ../roles/install_tools/slp.yml
     - import_tasks: ../roles/install_tools/ssh-key.yml
+    - import_tasks: ../roles/install_tools/gh.yml
+    - import_tasks: ../roles/install_tools/lazygit.yml
+    - import_tasks: ../roles/install_tools/graphviz.yml
