@@ -1,20 +1,26 @@
 #!/bin/sh
 
-set -e
+set -eux
 
-# TODO: Slack Webhook URLを設定する
-SLACK_WEBHOOK_URL="dummy"
+REPO="yoRyuuuuu/private-isu-002"
+TITLE="$(date '+%Y-%m-%d %H:%M:%S')の計測結果"
+ISSUE_URL=$(gh issue create --repo $REPO --title "$TITLE" --body "")
 
-sudo cat /var/log/nginx/access.log | alp json \
-  --sort sum -r \
-  -m '/@\w+,/image/*,/posts/[0-9]+' \
-  -o count,uri,min,max,sum,avg \
-  >> /tmp/alp
+{
+  echo "alp:"
+  echo "\`\`\`"
+  sudo cat /var/log/nginx/access.log | alp json \
+    --sort sum -r \
+    -m '/@\w+,/image/*,/posts/[0-9]+' \
+    -o count,method,1xx,2xx,3xx,4xx,5xx,uri,min,max,sum,avg
+  echo "\`\`\`"
+} > /tmp/alp
+gh issue comment "$ISSUE_URL" --body-file /tmp/alp
 
-ALP_RESULT=$(cat /tmp/alp)
-
-curl -X POST $SLACK_WEBHOOK_URL \
-  -H 'Content-type: application/json' \
-  --data '{
-    "text": "```'"$ALP_RESULT"'```",
-  }'
+{
+  echo "pt-query-digest:"
+  echo "\`\`\`"
+  sudo pt-query-digest /var/log/mysql/mysql-slow.log | head -n 200
+  echo "\`\`\`"
+} > /tmp/pt-query-digest
+gh issue comment "$ISSUE_URL" --body-file /tmp/pt-query-digest
