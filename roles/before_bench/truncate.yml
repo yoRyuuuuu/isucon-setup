@@ -13,3 +13,8 @@
   community.general.filesize:
     path: /var/log/mysql/mysql-slow.log
     size: 0
+
+- name: truncate /var/log/mysql/error.log
+  community.general.filesize:
+    path: /var/log/mysql/error.log
+    size: 0
