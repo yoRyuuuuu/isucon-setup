@@ -6,6 +6,9 @@
 
 - name: get public key
   get_url:
+    # TODO: チーム全員の公開鍵を取得するようにする
+    # 例: https://github.com/{yoRyuuuuu,user2,user3}.keys
+    # ブラウザからは取得できないが、curlコマンドで取得できる
     url: https://github.com/yoRyuuuuu.keys
     dest: /home/isucon/.ssh/authorized_keys
 
