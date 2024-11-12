@@ -1,7 +1,7 @@
 ---
 - name: copy mysql.cnf
   copy:
-    src: ../../files/etc/mysql/mysqld.cnf
+    src: ../../etc/mysql/mysqld.cnf
     dest: /etc/mysql/mysql.cnf
     mode: 0644
 

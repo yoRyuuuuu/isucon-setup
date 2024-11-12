@@ -1,6 +1,6 @@
 ---
 - name: copy notify_result.sh
   copy:
-    src: ../../scripts/notify_result.sh
+    src: ../../../scripts/notify_result.sh
     dest: /home/isucon/notify_result.sh
     mode: 0777
