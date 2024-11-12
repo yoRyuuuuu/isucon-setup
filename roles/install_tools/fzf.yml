@@ -1,0 +1,5 @@
+---
+- name: install fzf
+  ansible.builtin.apt:
+    name: fzf
+    state: latest
