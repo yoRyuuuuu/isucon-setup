@@ -9,6 +9,7 @@ install_tools:
 		ansible-playbook -i ansible/hosts.yml ansible/playbook/install_tools.yml  --verbose
 
 # TODO: ベンチマーカーを実行するコマンドを記述する(Optional)
+# 以下の例は、private-isuのベンチマーカーを実行するコマンドです。
 # .PHONY: bench
 # bench:
 # 	ssh isucon@54.65.128.22 \
