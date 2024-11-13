@@ -17,7 +17,7 @@ set -eux
     -o count,method,1xx,2xx,3xx,4xx,5xx,uri,min,max,sum,avg
   echo "\`\`\`"
 } > /tmp/alp
-slm < /tmp/alp
+sml < /tmp/alp
 
 # pt-query-digestの統計結果をSlackに通知する
 {
@@ -25,4 +25,4 @@ slm < /tmp/alp
   sudo pt-query-digest /var/log/mysql/mysql-slow.log | head -n 300
   echo "\`\`\`"
 } > /tmp/pt-query-digest
-slm < /tmp/pt-query-digest
+sml < /tmp/pt-query-digest
