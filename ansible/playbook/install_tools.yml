@@ -13,3 +13,4 @@
     - import_tasks: ../roles/install_tools/graphviz.yml
     - import_tasks: ../roles/install_tools/scripts.yml
     - import_tasks: ../roles/install_tools/fzf.yml
+    - import_tasks: ../roles/install_tools/slackcat.yml
