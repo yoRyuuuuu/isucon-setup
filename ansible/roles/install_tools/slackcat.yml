@@ -1,9 +1,0 @@
----
-- name: install slackcat
-  get_url:
-    url: curl -Lo slackcat https://github.com/bcicen/slackcat/releases/download/1.7.2/slackcat-1.7.2-linux-amd64
-    dest: /usr/local/bin
-    mode: 0755
-
-- name: execute slackcat
-  shell: slackcat --version
